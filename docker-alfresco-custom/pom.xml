@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.alfresco.training</groupId>
+    <artifactId>docker-alfresco-custom</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>JAR and AMP assembly under /target for use by Dockerfile</name>
+    <packaging>pom</packaging>
+
+    <!-- Define the dependencies that should be part of custom Alfresco Repo image -->
+    <dependencies>
+        <!-- Our custom repo JAR extension -->
+        <dependency>
+            <groupId>org.alfresco.training</groupId>
+            <artifactId>custom-repo-extension</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- A public repo AMP extension that enables attaching metadata at upload time -->
+        <dependency>
+            <groupId>com.softwareloop</groupId>
+            <artifactId>uploader-plus-repo</artifactId>
+            <version>1.6</version>
+            <type>amp</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-repo-extensions</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.alfresco.training</groupId>
+                                    <artifactId>custom-repo-extension</artifactId>
+                                    <version>1.0-SNAPSHOT</version>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/jars</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>com.softwareloop</groupId>
+                                    <artifactId>uploader-plus-repo</artifactId>
+                                    <version>1.6</version>
+                                    <type>amp</type>
+                                    <overWrite>false</overWrite>
+                                    <outputDirectory>${project.build.directory}/amps</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
+
+</project>

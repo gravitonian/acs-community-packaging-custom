@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent Community POM with all dependency versions -->
+    <parent>
+        <groupId>org.alfresco</groupId>
+        <artifactId>acs-community-packaging</artifactId>
+        <version>6.0.4-ea</version>
+        <relativePath></relativePath> <!-- Add empty parent POM path so it resolves from repositories, and not from ../pom.xml -->
+    </parent>
+
+    <groupId>org.alfresco.training</groupId>
+    <artifactId>custom-repo-extension</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Custom repository extension JAR</name>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.alfresco</groupId>
+            <artifactId>alfresco-repository</artifactId>
+            <!-- No need to specify version, it is picked up from dependency management in parent POM -->
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- Make sure resources are filtered (e.g. module.id=${project.artifactId} -> module.id=custom-repo-extension) -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>

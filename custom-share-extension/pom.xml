@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.alfresco.training</groupId>
+    <artifactId>custom-content-model-ui</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Custom content model UI extension</name>
+    <packaging>jar</packaging>
+
+    <properties>
+        <alfresco-share-version>6.0.a</alfresco-share-version>
+    </properties>
+
+    <dependencies>
+        <!-- Get the Alfresco Module Management Tool (MMT) so we can install AMPs -->
+        <dependency>
+            <groupId>org.alfresco</groupId>
+            <artifactId>alfresco-mmt</artifactId>
+            <version>${alfresco.mmt.version}</version>
+        </dependency>
+        <!-- Pick an AMP that is not included by default in the alfresco-share image -->
+        <dependency>
+            <groupId>org.alfresco.integrations</groupId>
+            <artifactId>alfresco-googledocs-share</artifactId>
+            <version>${alfresco.googledocs.version}</version>
+            <type>amp</type>
+        </dependency>
+    </dependencies>
+
+</project>
