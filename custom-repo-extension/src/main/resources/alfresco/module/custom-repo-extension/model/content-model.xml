@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model xmlns="http://www.alfresco.org/model/dictionary/1.0"
-       name="acme_content:model">
+       name="acme:model">
     <description>This custom content model defines new types and aspects related to the ACME company domain.</description>
     <author>Martin Bergljung</author>
     <version>1.0</version>
@@ -13,16 +13,16 @@
     </imports>
 
     <namespaces>
-        <namespace uri="http://www.acme.org/model/content/1.0" prefix="acme_content"/>
+        <namespace uri="http://www.acme.org/model/content/1.0" prefix="acme"/>
     </namespaces>
 
     <types>
-        <type name="acme_content:document">
+        <type name="acme:document">
             <title>ACME Document</title>
             <description>Base type for ACME Documents</description>
             <parent>cm:content</parent>
             <properties>
-                <property name="acme_content:document_id">
+                <property name="acme:document_id">
                     <title>ACME Document ID</title>
                     <description>ACME domain specific document ID</description>
                     <type>d:text</type>

@@ -8,7 +8,7 @@
     <config evaluator="string-compare" condition="DocumentLibrary">
         <types>
             <type name="cm:content">
-                <subtype name="acme_content:document"/>
+                <subtype name="acme:document"/>
             </type>
         </types>
     </config>
@@ -28,7 +28,7 @@
 
                 <!-- Custom type -->
                 <form labelId="form.label.advancedsearch.acmeDocFile"
-                      descriptionId="form.description.advancedsearch.bookFolder">acme_content:document
+                      descriptionId="form.description.advancedsearch.bookFolder">acme:document
                 </form>
             </forms>
         </advanced-search>
@@ -51,7 +51,7 @@
          ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
     <!-- View and edit forms for Acme Doc File type -->
-    <config evaluator="node-type" condition="acme_content:document">
+    <config evaluator="node-type" condition="acme:document">
         <forms>
             <form>
                 <field-visibility>
@@ -153,12 +153,12 @@
                     <show id="surf:label"/>
 
                     <!-- ADDED custom metadata -->
-                    <show id="acme_content:document_id" for-mode="view"/>
+                    <show id="acme:document_id" force="true"/>
                 </field-visibility>
                 <appearance>
                     <!-- UPDATED appearance -->
                     <set id="acmeDocInfoset" appearance="bordered-panel" label-id="form.header.acmeDocInfo"/>
-                    <field id="acme_content:document_id" label-id="form.label.acmeDocId" set="acmeDocInfoset" read-only="true"/>
+                    <field id="acme:document_id" label-id="form.label.acmeDocId" set="acmeDocInfoset" />
 
                     <set id="cm:folder2col" template="/org/alfresco/components/form/2-column-set.ftl" />
                     <field set="cm:folder2col" id="cm:creator" />
@@ -179,13 +179,13 @@
                     <show id="cm:categories" />
 
                     <!-- ADDED custom metadata -->
-                    <show id="acme_content:document_id" for-mode="view"/>
+                    <show id="acme:document_id"/>
                 </field-visibility>
                 <edit-form template="../documentlibrary/forms/doclib-simple-metadata.ftl" />
                 <appearance>
                     <!-- UPDATED appearance -->
                     <set id="acmeDocInfoset" appearance="bordered-panel" label-id="form.header.acmeDocInfo"/>
-                    <field id="acme_content:document_id" label-id="form.label.acmeDocId" set="acmeDocInfoset" read-only="true"/>
+                    <field id="acme:document_id" label-id="form.label.acmeDocId" set="acmeDocInfoset" />
                 </appearance>
             </form>
 
@@ -198,19 +198,19 @@
                     <show id="cm:description" force="true" />
 
                     <!-- ADDED custom metadata -->
-                    <show id="acme_content:document_id" for-mode="view"/>
+                    <show id="acme:document_id" />
                 </field-visibility>
                 <appearance>
                     <!-- UPDATED appearance -->
                     <set id="acmeDocInfoset" appearance="bordered-panel" label-id="form.header.acmeDocInfo"/>
-                    <field id="acme_content:document_id" label-id="form.label.acmeDocId" set="acmeDocInfoset" read-only="true"/>
+                    <field id="acme:document_id" label-id="form.label.acmeDocId" set="acmeDocInfoset" />
                 </appearance>
             </form>
         </forms>
     </config>
 
     <!-- Search form for Acme Doc File type -->
-    <config evaluator="model-type" condition="acme_content:document">
+    <config evaluator="model-type" condition="acme:document">
         <forms>
             <form id="search">
                 <field-visibility>
@@ -219,12 +219,12 @@
                     <show id="cm:modified" />
 
                     <!-- ADDED custom metadata -->
-                    <show id="acme_content:document_id" for-mode="view"/>
+                    <show id="acme:document_id" />
                 </field-visibility>
                 <appearance>
                     <!-- UPDATED appearance -->
                     <set id="acmeDocInfoset" appearance="bordered-panel" label-id="form.header.acmeDocInfo"/>
-                    <field id="acme_content:document_id" label-id="form.label.acmeDocId" set="acmeDocInfoset" read-only="true"/>
+                    <field id="acme:document_id" label-id="form.label.acmeDocId" set="acmeDocInfoset" />
 
                     <set id="general" appearance="title" label="Standard properties"/>
                     <field id="cm:created" set="general">

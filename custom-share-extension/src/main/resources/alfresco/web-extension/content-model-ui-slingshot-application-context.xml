@@ -16,7 +16,7 @@
    <bean id="evaluator.doclib.acmeDocType" parent="evaluator.doclib.action.nodeType">
       <property name="types">
          <list>
-            <value>acme_content:document</value>
+            <value>acme:document</value>
          </list>
       </property>
    </bean>
