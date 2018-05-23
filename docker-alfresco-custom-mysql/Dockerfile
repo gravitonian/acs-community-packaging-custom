@@ -1,4 +1,4 @@
-FROM alfresco/alfresco-content-repository-community:6.0.4-ea
+FROM alfresco/alfresco-content-repository-community:6.0.5-ea
 
 ARG TOMCAT_LIB_DIR=/usr/local/tomcat/lib
 
